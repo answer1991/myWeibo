@@ -1,23 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="/META-INF/tld/fmt.tld" %>
+
+<fmt:setBundle basename="jstl-properties/page-i18n/login/page"/>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户登录 - myWeibo</title>
-<jsp:include page="template/static_source.jsp"></jsp:include>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title><fmt:message key="title" /> - <fmt:message key="all.title" /></title>
+	<jsp:include page="template/static_source.jsp"></jsp:include>
+	<jsp:include page="template/basePath.jsp"></jsp:include>
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="/">myWeibo</a>
+				<a class="brand" href="/"><fmt:message key="all.nav.brand" /></a>
 				<ul class="nav">
-					<li class="active"><a href="/">微博</a></li>
-					<li><a href="/projblog.html">项目</a></li>
-					<li><a href="/gallery.html">相册</a></li>
-					<li><a href="/resume/resume.html" target="_blank">简历</a></li>
+					<li class="active"><a href="/"><fmt:message key="all.nav.weibo" /></a></li>
+					<li><a href="/projblog.html"><fmt:message key="all.nav.blog" /></a></li>
+					<li><a href="/gallery.html"><fmt:message key="all.nav.gallery" /></a></li>
 				</ul>
 			</div>
 		</div>
@@ -28,28 +31,33 @@
 			<div class="span3"></div>
 			<div class="span6">
 				<div class="well">
+					<fmt:message key="hello"/>
 					<p class="text-center text-error">${ errorInfo }</p>
 					<form class="form-horizontal" action="./doLogin.html" method="post">
 						<div class="control-group">
-							<label class="control-label" for="inputEmail">登录邮箱</label>
+							<label class="control-label" for="inputEmail">
+								<fmt:message key="input.email" />
+							</label>
 							<div class="controls">
-								<input type="text" id="inputEmail" placeholder="Email"
+								<input type="text" id="inputEmail" placeholder="<fmt:message key="input.email.placeholder" />"
 									name="email">
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="inputPassword">登录密码</label>
+							<label class="control-label" for="inputPassword">
+								<fmt:message key="input.password" />
+							</label>
 							<div class="controls">
-								<input type="password" id="inputPassword" placeholder="Password"
+								<input type="password" id="inputPassword" placeholder="<fmt:message key="input.password.placeholder" />"
 									name="password">
 							</div>
 						</div>
 						<div class="control-group">
 							<div class="controls">
-								<label class="checkbox"> <input type="checkbox">记住我
+								<label class="checkbox"> <input type="checkbox"><fmt:message key="checkbox.remember" />
 								</label>
-								<button type="submit" class="btn btn-primary">登录</button>
-								<a class="btn btn-warning" href="./register.html">注册</a>
+								<button type="submit" class="btn btn-primary"><fmt:message key="button.submit" /></button>
+								<a class="btn btn-warning" href="./register.html"><fmt:message key="button.register" /></a>
 							</div>
 						</div>
 					</form>

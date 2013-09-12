@@ -1,12 +1,11 @@
 package com.answer1991.mvc.controller;
 
 import javax.persistence.NoResultException;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,16 +23,16 @@ public class DoLoginController {
 	private ServiceFacade service;
 	
 	@RequestMapping("/doLogin.html")
-	public ModelAndView hanlde(@ModelAttribute InputUser inputUser) {
+	public String hanlde(@ModelAttribute InputUser inputUser) {
 		User user = service.queryUserByEmailAndPassword(inputUser.getEmail(), inputUser.getPassword());
-		return new ModelAndView("success");
+		return "success";
 	}
 	
 	@ExceptionHandler(NoResultException.class)
 	@ResponseStatus(HttpStatus.OK)
-	public ModelAndView handleNoResultException() {
+	public ModelAndView handleNoResultException(NoResultException ex) {
 		ModelAndView mav = new ModelAndView("login");
-		mav.addObject("errorInfo", "帐户名不存在或者密码错误！");
+		mav.addObject("errorInfo", "用户名不存在或者密码错误!");
 		return mav;
 	}
 	
