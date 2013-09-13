@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RegisterController {
 	
-	@RequestMapping("/register.html")
+	@RequestMapping("/register")
 	public String handleGoToRegisterPage() {
 		return "register";
 	}

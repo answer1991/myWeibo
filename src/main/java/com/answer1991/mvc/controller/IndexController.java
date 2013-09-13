@@ -6,23 +6,23 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.answer1991.mvc.pojo.InputUser;
+import com.answer1991.entity.User;
 
 @Controller
 @RequestMapping("/")
 @SessionAttributes("user")
 public class IndexController {
 	@RequestMapping("")
-	public ModelAndView handle(@ModelAttribute("user")InputUser user) {
+	public String handle(@ModelAttribute User user) {
 		//throw new RuntimeException("error");
-		return new ModelAndView("register");
+		System.out.println(user.getEmail());
+		return "success";
 	}
 	
 	@ExceptionHandler(HttpSessionRequiredException.class)
-	public ModelAndView noSeesionAttributes(HttpSessionRequiredException ex) {
+	public String noSeesionAttributes(HttpSessionRequiredException ex) {
 		//ex.printStackTrace();
-		return new ModelAndView("login");
+		return "login";
 	}
 }

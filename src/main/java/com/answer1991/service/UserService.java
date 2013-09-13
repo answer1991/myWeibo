@@ -7,6 +7,6 @@ import com.answer1991.mvc.pojo.InputUser;
 
 @Transactional
 public interface UserService {
-	public abstract void saveUser(InputUser inputUser);
+	public abstract User saveUser(InputUser inputUser);
 	public abstract User queryUserByEmailAndPassword(String email, String password);
 }

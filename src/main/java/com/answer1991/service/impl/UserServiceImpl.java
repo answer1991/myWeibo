@@ -13,11 +13,12 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	
 	@Override
-	public void saveUser(InputUser inputUser) {
+	public User saveUser(InputUser inputUser) {
 		User user = new User();
 		user.setEmail(inputUser.getEmail());
 		user.setPassword(inputUser.getPassword());
 		userDao.saveUser(user);
+		return user;
 	}
 
 	@Override

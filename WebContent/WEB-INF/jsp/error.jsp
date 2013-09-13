@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h2>Sorry, an exception has happened.</h2>
-
+	<p>status code: ${ code }</p>
+	<p>message: ${ message }<p>
 </body>
 </html>

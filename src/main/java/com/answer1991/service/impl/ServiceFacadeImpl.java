@@ -13,8 +13,8 @@ public class ServiceFacadeImpl implements ServiceFacade {
 	private UserService userSerivce;
 	
 	@Override
-	public void saveUser(InputUser inputUser) {
-		userSerivce.saveUser(inputUser);
+	public User saveUser(InputUser inputUser) {
+		return userSerivce.saveUser(inputUser);
 	}
 
 	@Override
