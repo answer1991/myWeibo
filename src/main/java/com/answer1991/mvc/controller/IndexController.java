@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.answer1991.entity.User;
 
 @Controller
-@RequestMapping("/")
 @SessionAttributes("user")
 public class IndexController {
-	@RequestMapping("")
+	@RequestMapping("/")
 	public String handle(@ModelAttribute User user) {
 		//throw new RuntimeException("error");
 		System.out.println(user.getEmail());
