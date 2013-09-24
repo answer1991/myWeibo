@@ -22,6 +22,6 @@ public class TestUserDaoImpl {
 		InputUser user = new InputUser();
 		user.setEmail("12345");
 		user.setPassword("12345");
-		service.saveUser(user);
+		service.registerUser(user);
 	}
 }

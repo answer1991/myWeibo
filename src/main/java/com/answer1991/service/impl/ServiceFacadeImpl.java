@@ -1,5 +1,7 @@
 package com.answer1991.service.impl;
 
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.answer1991.entity.User;
@@ -13,8 +15,14 @@ public class ServiceFacadeImpl implements ServiceFacade {
 	private UserService userSerivce;
 	
 	@Override
-	public User saveUser(InputUser inputUser) {
-		return userSerivce.saveUser(inputUser);
+	public User registerUser(InputUser inputUser) {
+		return userSerivce.registerUser(inputUser);
+	}
+	
+	@Override
+	public User queryUserById(Serializable id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -28,5 +36,17 @@ public class ServiceFacadeImpl implements ServiceFacade {
 
 	public void setUserSerivce(UserService userSerivce) {
 		this.userSerivce = userSerivce;
+	}
+
+	@Override
+	public void refreshUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public User mergeUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

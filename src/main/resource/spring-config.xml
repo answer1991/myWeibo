@@ -21,9 +21,13 @@
 	<!-- Annotation injection is performed before XML injection -->
 	<!-- 要使用注解，必须加上这个标签 -->
 	<context:annotation-config />
+	
+	<aop:aspectj-autoproxy />
 
 	<context:component-scan base-package="com.answer1991.**" />
 	
 	<import resource="spring-mvc-config/spring-mvc-config.xml"/>
 	<import resource="spring-orm-config/spring-orm-config.xml"/>
+	<import resource="spring-service-config/spring-service-config.xml"/>
+	<import resource="spring-aspect-config/spring-aspect-config.xml"/>
 </beans>

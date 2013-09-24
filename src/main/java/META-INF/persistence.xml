@@ -5,12 +5,15 @@
 	<persistence-unit name="myWeibo" transaction-type="RESOURCE_LOCAL">
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<class>com.answer1991.entity.User</class>
+		<class>com.answer1991.entity.Gallery</class>
+		<class>com.answer1991.entity.Photo</class>
 		<properties>
-			<property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
 			<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
 			<property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/myweibo" />
 			<property name="openjpa.ConnectionUserName" value="zet" />
 			<property name="openjpa.ConnectionPassword" value="a010203" />
+			<property name="openjpa.Log" value="SQL=TRACE" />
+			<property name="openjpa.ConnectionFactoryProperties" value="PrettyPrint=true, PrettyPrintLineLength=72" />
 		</properties>
 	</persistence-unit>
 </persistence>

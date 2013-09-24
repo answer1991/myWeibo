@@ -32,6 +32,13 @@
 					<form class="form-horizontal" action="./doRegister.html"
 						method="post">
 						<div class="control-group">
+							<label class="control-label" for="inputNickname">用户名</label>
+							<div class="controls">
+								<input type="text" id="inputNickname" placeholder="用户名"
+									name="nickname">
+							</div>
+						</div>
+						<div class="control-group">
 							<label class="control-label" for="inputEmail">登录邮箱</label>
 							<div class="controls">
 								<input type="text" id="inputEmail" placeholder="Email"
@@ -56,6 +63,6 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<jsp:include page="template/static_source_body.jsp"></jsp:include>
 </body>
 </html>

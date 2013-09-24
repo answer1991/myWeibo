@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<mvc:annotation-driven />
+	<mvc:annotation-driven ignoreDefaultModelOnRedirect="true"/>
 	<mvc:default-servlet-handler />
 
 	<bean
@@ -20,33 +20,27 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
+	<!-- Servlet 3.0 file upload Resolver -->
 	<!-- 
-	<bean
-		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="mediaTypes">
-			<map>
-				<entry key="atom" value="application/atom+xml" />
-				<entry key="html" value="text/html" />
-				<entry key="json" value="application/json" />
-				<entry key="jsp" value="text/html" />
-			</map>
-		</property>
-		<property name="viewResolvers">
-			<list>
-				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
-				<bean
-					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-					<property name="prefix" value="/jsp/" />
-					<property name="suffix" value=".jsp" />
-				</bean>
-			</list>
-		</property>
-		<property name="defaultViews">
-			<list>
-				<bean
-					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
-			</list>
-		</property>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</bean>
 	 -->
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="100000000" />
+	</bean>
+
+	<!-- <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"> 
+		<property name="mediaTypes"> <map> <entry key="atom" value="application/atom+xml" 
+		/> <entry key="html" value="text/html" /> <entry key="json" value="application/json" 
+		/> <entry key="jsp" value="text/html" /> </map> </property> <property name="viewResolvers"> 
+		<list> <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" 
+		/> <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="/jsp/" /> <property name="suffix" value=".jsp" 
+		/> </bean> </list> </property> <property name="defaultViews"> <list> <bean 
+		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" 
+		/> </list> </property> </bean> -->
 </beans>

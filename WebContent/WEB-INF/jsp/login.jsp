@@ -11,24 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><fmt:message key="title" /> - <fmt:message key="all.title" /></title>
 <jsp:include page="template/static_source.jsp"></jsp:include>
-<jsp:include page="template/basePath.jsp"></jsp:include>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="brand" href="/"><fmt:message key="all.nav.brand" /></a>
-				<ul class="nav">
-					<li class="active"><a href="/"><fmt:message
-								key="all.nav.weibo" /></a></li>
-					<li><a href="/projblog.html"><fmt:message
-								key="all.nav.blog" /></a></li>
-					<li><a href="/gallery.html"><fmt:message
-								key="all.nav.gallery" /></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="template/headerNav.jsp"></jsp:include>
 
 	<div class="container">
 		<div class="row">
@@ -81,6 +66,6 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<jsp:include page="template/static_source_body.jsp"></jsp:include>
 </body>
 </html>

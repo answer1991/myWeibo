@@ -1,5 +1,7 @@
 package com.answer1991.dao.impl;
 
+import java.io.Serializable;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -14,6 +16,21 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void saveUser(User user) {
 		em.persist(user);
+	}
+	
+	@Override
+	public User mergeUser(User user) {
+		return em.merge(user); 
+	}
+	
+	@Override
+	public void refreshUser(User user) {
+		em.refresh(user);
+	}
+	
+	@Override
+	public User queryById(Serializable id) {
+		return em.find(User.class, id);
 	}
 
 	@Override

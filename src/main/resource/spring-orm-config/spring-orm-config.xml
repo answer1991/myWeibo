@@ -14,6 +14,12 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
 	
+	<!-- 
+	<context:annotation-config />
+	
+	<aop:aspectj-autoproxy />
+	 -->
+	
 	<tx:annotation-driven transaction-manager="myTxManager" />
 
 	<bean id="myEmf"
@@ -26,6 +32,8 @@
 	</bean>
 
 	<bean id="userDao" class="com.answer1991.dao.impl.UserDaoImpl"></bean>
-	<bean id="userService" class="com.answer1991.service.impl.UserServiceImpl"></bean>
-	<bean id="service" class="com.answer1991.service.impl.ServiceFacadeImpl"></bean>
+	
+	<bean id="galleryDao" class="com.answer1991.dao.impl.GalleryDaoImpl"></bean>
+	
+	<bean id="photoDao" class="com.answer1991.dao.impl.PhotoDaoImpl"></bean>
 </beans>
